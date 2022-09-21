@@ -27,6 +27,13 @@ public class Customer {
         this.province = province;
     }
 
+    public Customer(Long id, String firstName, String lastName, Province province) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.province = province;
+    }
+
     @Override
     public String toString() {
         return "Customer{" +

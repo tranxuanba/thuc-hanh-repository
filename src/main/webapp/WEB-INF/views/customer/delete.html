@@ -11,19 +11,46 @@
   <a href="/customers">Customer list</a>
 </p>
 <form th:action="@{/delete-customer}" th:object="${customer}" method="post">
-  <input th:type="hidden" name="id" th:field="*{customer.id}">
+<!--  <input th:type="hidden" name="id" th:field="*{customer.id}">-->
+<!--  <table>-->
+<!--    <tr>-->
+<!--      <td>First name:</td>-->
+<!--      <td th:text="${customer.firstName}"></td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--      <td>Last name:</td>-->
+<!--      <td th:text="${customer.lastName}"></td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--      <td></td>-->
+<!--      <td><input type="submit" value="Delete customer"></td>-->
+<!--    </tr>-->
+<!--  </table>-->
+  <input th:type="hidden" name="id" th:field="${customer.id}">
   <table>
     <tr>
       <td>First name:</td>
-      <td th:text="${customer.firstName}"></td>
+      <td><input type="text" th:field="${customer.firstName}"/></td>
     </tr>
     <tr>
       <td>Last name:</td>
-      <td th:text="${customer.lastName}"></td>
+      <td><input type="text" th:field="${customer.lastName}"/></td>
+    </tr>
+    <tr>
+      <td>Province:</td>
+      <td>
+        <select name="province">
+          <option th:each="p : ${provinces}"
+                  th:value="${p.id}"
+                  th:text="${p.name}">
+            <!--                            th:selected="(${customer.province}) and (${p.id} == ${province.id})"-->
+          </option>
+        </select>
+      </td>
     </tr>
     <tr>
       <td></td>
-      <td><input type="submit" value="Delete customer"></td>
+      <td><input type="submit" value="delete customer"></td>
     </tr>
   </table>
 </form>
