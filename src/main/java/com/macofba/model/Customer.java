@@ -29,7 +29,11 @@ public class Customer {
 
     @Override
     public String toString() {
-        return String.format("Customer[id=%d, firstName='%s', lastName='%s']", id, firstName, lastName);
+        return "Customer{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", province=" + province +
+                '}';
     }
 
     public Long getId() {
